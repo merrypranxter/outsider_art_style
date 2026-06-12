@@ -1,0 +1,18 @@
+{
+  "repo": "outsider_art_style",
+  "type": "style_reference",
+  "aesthetic_category": "outsider_visionary",
+  "subcategories": ["art_brut", "folk_art", "visionary", "obsessive_art", "self_taught"],
+  "references": ["Henry Darger", "Adolf Wölfli", "Howard Finster", "Thornton Dial"],
+  "color_palettes": {
+    "DARGER_VIVID": ["#FF4136", "#2ECC40", "#FFDC00", "#0074D9", "#FF69B4"],
+    "WOLFLI_COSMIC": ["#8B0000", "#DAA520", "#191970", "#228B22", "#F5DEB3"],
+    "FINSTER_PRIMITIVE": ["#FF6347", "#32CD32", "#FFD700", "#8B4513"],
+    "CRAYON_BOX": ["#FF2400", "#0047AB", "#FFD700", "#228B22", "#FF69B4"]
+  },
+  "regimes": ["HORROR_VACUI", "VISIONARY_MAP", "REPEATED_FIGURE", "FOUND_GROUND", "TEXT_IMAGE"],
+  "pipeline_role": "context_source",
+  "compatible_with": ["cave_art", "ancient_hindu_art", "garbage_enlightenment_style", "psychedelic_collage"],
+  "reposcripter2": true,
+  "shaderforge": true
+}
