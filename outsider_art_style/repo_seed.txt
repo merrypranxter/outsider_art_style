@@ -1,0 +1,24 @@
+REPO: outsider_art_style
+PURPOSE: Art Brut / Outsider / Visionary folk art visual language — Darger, Wölfli, Finster
+STACK: Three.js + WebGL2 + GLSL + Vite
+
+CORE MATH:
+- Horror vacui fill: recursive subdivision until coverage > threshold
+- Crayon texture: fbm(uv * 200.0) * stroke_direction_mask — waxy parallel grain
+- Mark wobble: path_point += noise(path_point * 50.0) * wobble_amount
+- Repetition field: figure(fract(uv * density) - 0.5) — packed figure array
+- Found ground: mix(paint_color, newspaper_texture, ground_show * (1.0 - paint_alpha))
+- Naive outline: Sobel edge detect on flat color fills, thicken 2–4px
+
+PALETTES:
+- DARGER_VIVID: #FF4136, #2ECC40, #FFDC00, #0074D9, #FF69B4
+- WOLFLI_COSMIC: #8B0000, #DAA520, #191970, #228B22, #F5DEB3
+- FINSTER_PRIMITIVE: #FF6347, #32CD32, #FFD700, #8B4513
+- CRAYON_BOX: #FF2400, #0047AB, #FFD700, #228B22, #FF69B4
+
+REGIMES:
+- HORROR_VACUI: maximum fill density, no empty space, borders within borders
+- VISIONARY_MAP: geometric cosmology, labeled zones, mandala-manifest hybrid
+- REPEATED_FIGURE: one figure type iterated across surface with variation
+- FOUND_GROUND: newspaper/cardboard showing through translucent paint
+- TEXT_IMAGE: words written into image, labels everything, story-as-texture

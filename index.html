@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>outsider_art_style — Art Brut Shader Gallery</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      overflow: hidden;
+      background: #111;
+      font-family: 'Courier New', Courier, monospace;
+      color: #e8dcc8;
+    }
+
+    canvas {
+      display: block;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: 0;
+    }
+
+    /* ── Info panel (top-left) ── */
+    #info {
+      position: fixed;
+      top: 14px; left: 14px;
+      z-index: 10;
+      background: rgba(10, 7, 4, 0.78);
+      border: 1px solid rgba(200, 160, 80, 0.35);
+      border-radius: 3px;
+      padding: 12px 16px;
+      max-width: 320px;
+      pointer-events: none;
+    }
+
+    #shader-name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #f5d080;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    #shader-artist {
+      font-size: 11px;
+      color: #bba87a;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 12px;
+      font-size: 10px;
+      color: #8a7a5a;
+      margin-top: 4px;
+    }
+
+    .meta-label { color: #6a5a3a; text-transform: uppercase; font-size: 9px; }
+
+    #shader-index {
+      font-size: 10px;
+      color: #6a5a3a;
+      margin-top: 6px;
+    }
+
+    /* ── Navigation (bottom center) ── */
+    #nav {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #nav button {
+      background: rgba(10, 7, 4, 0.80);
+      border: 1px solid rgba(200, 160, 80, 0.5);
+      color: #f5d080;
+      font-family: inherit;
+      font-size: 13px;
+      padding: 8px 20px;
+      cursor: pointer;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    #nav button:hover {
+      background: rgba(40, 28, 10, 0.90);
+      border-color: rgba(200, 160, 80, 0.9);
+    }
+
+    .key-hint {
+      font-size: 10px;
+      color: #6a5a3a;
+    }
+
+    /* ── Parameter sliders (right panel) ── */
+    #controls {
+      position: fixed;
+      top: 14px; right: 14px;
+      z-index: 10;
+      background: rgba(10, 7, 4, 0.78);
+      border: 1px solid rgba(200, 160, 80, 0.25);
+      border-radius: 3px;
+      padding: 12px 16px;
+      width: 230px;
+    }
+
+    #controls h3 {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7a6a4a;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(200, 160, 80, 0.2);
+      padding-bottom: 6px;
+    }
+
+    .slider-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .slider-row label {
+      font-size: 10px;
+      color: #a89870;
+      white-space: nowrap;
+    }
+
+    .slider-row input[type=range] {
+      width: 80px;
+      accent-color: #c8a050;
+      cursor: pointer;
+    }
+
+    .slider-val {
+      font-size: 10px;
+      color: #f5d080;
+      width: 32px;
+      text-align: right;
+    }
+
+    /* ── Keyboard reference ── */
+    #keyref {
+      position: fixed;
+      bottom: 14px; right: 14px;
+      z-index: 10;
+      font-size: 9px;
+      color: #5a4a2a;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Info panel -->
+  <div id="info">
+    <div id="shader-name">Loading…</div>
+    <div id="shader-artist"></div>
+    <div class="meta-row">
+      <div>
+        <div class="meta-label">Regime</div>
+        <div id="shader-regime"></div>
+      </div>
+      <div>
+        <div class="meta-label">Palette</div>
+        <div id="shader-palette"></div>
+      </div>
+    </div>
+    <div id="shader-index"></div>
+  </div>
+
+  <!-- Parameter controls -->
+  <div id="controls">
+    <h3>Parameters</h3>
+    <div id="sliders"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div id="nav">
+    <button id="btn-prev">← Prev</button>
+    <span class="key-hint">← → keys</span>
+    <button id="btn-next">Next →</button>
+  </div>
+
+  <!-- Key reference -->
+  <div id="keyref">
+    ← → navigate shaders
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
